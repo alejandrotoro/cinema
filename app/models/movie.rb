@@ -1,6 +1,6 @@
 class Movie < ApplicationRecord
   has_many :schedules
-  has_one_attached :image
+  # has_one_attached :image
 
   def self.get_movies_by_date(date)
     if date.present?

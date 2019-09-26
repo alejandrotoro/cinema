@@ -68,5 +68,5 @@ gem 'grape-swagger'
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 
 # Cloudinary
-gem 'cloudinary', require: false
-gem 'activestorage-cloudinary-service'
+# gem 'cloudinary'
+# gem 'activestorage-cloudinary-service'
