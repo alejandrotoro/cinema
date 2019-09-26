@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :schedule do
-    date { "" }
-    movie { nil }
+    date { Date.today }
+    movie
   end
 end

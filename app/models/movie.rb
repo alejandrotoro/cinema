@@ -1,5 +1,7 @@
 class Movie < ApplicationRecord
   has_many :schedules
+  validates_presence_of :name, :description
+  
   # has_one_attached :image
 
   def self.get_movies_by_date(date)
