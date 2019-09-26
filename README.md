@@ -17,6 +17,7 @@ You can access all the endpoints information by following the url <https://cinem
 The following are CURL commands to run in a console.
 
 1. Listing all the movies without a date
+
   ```curl -X GET \ 'https://cinema-alejandrotoro.herokuapp.com/api/v1/movies'```
 
   Response
@@ -102,6 +103,7 @@ The following are CURL commands to run in a console.
   ```
 
 2. Listing all the movies by a given date
+
   ```curl -X GET \ 'https://cinema-alejandrotoro.herokuapp.com/api/v1/movies?date=2019%2F09%2F27'```
 
   Response
@@ -200,6 +202,7 @@ The following are CURL commands to run in a console.
   ]
   ```
 3. Creating a movie
+
   ```ruby
   curl -X POST \
     'https://cinema-alejandrotoro.herokuapp.com/api/v1/movies' \
@@ -229,6 +232,7 @@ The following are CURL commands to run in a console.
   ```
 
 4. Create Booking
+
   ```ruby
   curl -X POST \
   'https://cinema-alejandrotoro.herokuapp.com/api/v1/bookings' \
@@ -263,6 +267,7 @@ The following are CURL commands to run in a console.
   ```
 
 5. Listing the bookings between two dates
+
   ```ruby
   curl -X GET \
   'https://cinema-alejandrotoro.herokuapp.com/api/v1/bookings?start_date=2019%2F09%2F26&end_date=2019%2F10%2F01'
@@ -378,6 +383,7 @@ The following are CURL commands to run in a console.
   ```
 
 5. Listing the bookings between two dates and with the movie id
+
   ```ruby
   curl -X GET \
   'https://cinema-alejandrotoro.herokuapp.com/api/v1/bookings?start_date=2019%2F09%2F26&end_date=2019%2F10%2F01&movie_id=1'
