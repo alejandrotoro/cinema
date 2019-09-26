@@ -17,6 +17,22 @@ module Cinema
           present bookings, with: Cinema::Entities::Booking, start_date: @start_date, end_date: @end_date
         end
 
+        desc 'Create a booking'
+        params do
+          requires :booking, type: Hash do
+            requires :user_id, type: Integer, desc: 'User'
+            requires :schedule_id, type: Integer, desc: 'Schedule'
+          end
+        end
+        post do
+          booking = Booking.new(params[:booking])
+          if booking.save
+            present booking, with: Cinema::Entities::Booking
+          else
+            error!({ error: booking.errors.full_messages }, 401)
+          end
+        end
+
       end
     end
   end
