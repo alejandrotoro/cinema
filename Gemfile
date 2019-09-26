@@ -62,6 +62,7 @@ end
 gem 'grape'
 gem 'grape-entity'
 gem 'grape_on_rails_routes'
+gem 'grape-swagger'
 
 # Faker
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'

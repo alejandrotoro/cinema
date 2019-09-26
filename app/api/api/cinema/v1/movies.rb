@@ -10,8 +10,9 @@ module Cinema
           optional :date, type: Date, desc: 'Date to search movies'
         end
         get do
-          movies = Movie.get_movies_by_date(params[:date])
-          present movies, with: Cinema::Entities::Movie
+          @date = params[:date]
+          movies = Movie.get_movies_by_date(@date)
+          present movies, with: Cinema::Entities::Movie, date: @date
         end
 
         desc 'Create a movie.'
@@ -25,10 +26,10 @@ module Cinema
           end
         end
         post do
-          byebug
+          @date = params[:schedule][:date]
           movie = Movie.create!(params[:movie])
           schedule = Schedule.create!(date: params[:schedule][:date], movie: movie)
-          present movie, with: Cinema::Entities::Movie
+          present movie, with: Cinema::Entities::Movie, date: @date
         end
 
       end
