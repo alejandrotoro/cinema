@@ -93,6 +93,9 @@ describe Cinema::V1::Movies do
       it 'returns HTTP status 400 - Bad Request' do
         post '/api/v1/movies', invalid_params.to_json
         expect(last_response.status).to eq 400
+        expect(JSON.parse(last_response.body)).to eq(
+          "error" => "movie is missing, movie[name] is missing, movie[description] is missing, schedule is missing, schedule[date] is missing"
+        )
       end
 
     end
