@@ -27,9 +27,13 @@ module Cinema
         end
         post do
           @date = params[:schedule][:date]
-          movie = Movie.create!(params[:movie])
-          schedule = Schedule.create!(date: params[:schedule][:date], movie: movie)
-          present movie, with: Cinema::Entities::Movie, date: @date
+          movie = Movie.new(params[:movie])
+          if movie.save
+            schedule = Schedule.create!(date: params[:schedule][:date], movie: movie)
+            present movie, with: Cinema::Entities::Movie, date: @date
+          else
+            error!({ error: movie.errors.full_messages }, 401)
+          end
         end
 
       end

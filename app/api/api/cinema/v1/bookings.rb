@@ -9,12 +9,14 @@ module Cinema
         params do
           requires :start_date, type: Date, desc: 'Start Date to search bookings'
           requires :end_date, type: Date, desc: 'End Date to search bookings'
+          optional :movie_id, type: String, desc: 'Filter the bookings by movie'
         end
         get do
           @start_date = params[:start_date]
           @end_date = params[:end_date]
-          bookings = Booking.get_bookings_by_dates(@start_date, @end_date)
-          present bookings, with: Cinema::Entities::Booking, start_date: @start_date, end_date: @end_date
+          @movie_id = params[:movie_id]
+          bookings = Schedule.get_bookings_by_dates(@start_date, @end_date, @movie_id)
+          present bookings, with: Cinema::Entities::Booking, start_date: @start_date, end_date: @end_date, movie_id: @movie_id
         end
 
         desc 'Create a booking'
